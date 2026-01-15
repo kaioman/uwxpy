@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "uwxpy"                # PyPIに登録されるパッケージ名
+version = "1.0.1"
+description = "A Python toolkit for generating, editing, and posting AI-powered images to X using Uwgen API, Gemini Vison, and Tweety."
+readme = "README.md"            # 説明文としてREADMEを利用
+license = {file = "LICENSE"}    # ライセンスファイル
+authors = [
+    { name="kaioman", email="kajin0318@gmail.com" }
+]
+dependencies = [
+    "libcore-hng"
+]
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.urls]
+Homepage = "https://github.com/kaioman/uwxpy"
+Repository = "https://github.com/kaioman/uwxpy"
+Issues = "https://github.com/kaioman/uwxpy/issues"

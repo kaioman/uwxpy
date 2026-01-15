@@ -1,0 +1,18 @@
+{
+    "gemini": {
+        "api_key": "xxxxx"
+    },
+    "vertexai": {
+        "project_id": "xxxxx",
+        "location": "us-east4"
+    },
+    "prompt": {
+        "json_path": "json"
+    },
+    "uwgen_api_key": "xxx",
+    "uwgen_endpoint": "xxx",
+    "x_consumer_key": "xxx",
+    "x_consumer_secret": "xxx",
+    "x_access_token": "xxx",
+    "x_access_token_secret": "xxx"
+}
