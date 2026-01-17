@@ -9,10 +9,14 @@
     "prompt": {
         "json_path": "json"
     },
-    "uwgen_api_key": "xxx",
-    "uwgen_endpoint": "xxx",
-    "x_consumer_key": "xxx",
-    "x_consumer_secret": "xxx",
-    "x_access_token": "xxx",
-    "x_access_token_secret": "xxx"
+    "uwgen": {
+        "api_key": "xxxxx",
+        "endpoint": "xxxxx"
+    },
+    "x_api": {
+        "consumer_key": "xxx",
+        "consumer_secret": "xxx",
+        "access_token": "xxx",
+        "access_token_secret": "xxx"
+    }
 }
