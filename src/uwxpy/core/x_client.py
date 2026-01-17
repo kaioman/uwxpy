@@ -1,6 +1,10 @@
 import tweepy
 import uwxpy.configs.app_init as app
+import libcore_hng.utils.app_logger as app_logger
 from http import HTTPStatus
+from tweepy.errors import TweepyException
+from uwxpy.models.tweet_result import TweetResult
+from uwxpy.exceptions.x_api_error import XApiError
 
 class XClient:
     """
@@ -29,39 +33,55 @@ class XClient:
         )
         self.x_api = tweepy.API(auth)
         
-    def tweet(self, text: str, media_ids: list[str] | None = None) -> dict:
+    def tweet(self, text: str, media_ids: list[str] | None = None) -> TweetResult:
         """
         Xにツイートを投稿する
         """
         
         try:
+            # Xにテキストデータを投稿
             response = self.x_client.create_tweet(
                 text=text,
                 media_ids=media_ids
             )
-            return {
-                "status": HTTPStatus.OK,
-                "tweet_id": response.data.get("id"),
-                "raw": response.data,
-            }
+            tweet_id = response.data.get("id")
+            app_logger.info(f"Tweet successfully posted to X. tweet_id={tweet_id}")
+            
+            return TweetResult(
+                status=HTTPStatus.OK,
+                tweet_id=tweet_id,
+                raw=response.data,
+            )
+        except TweepyException as e:
+            raise XApiError(e)
         except Exception as e:
-            raise RuntimeError(f"Tweet failed: {e}")
+            raise XApiError(e)
     
-    def upload_media(self, media_bytes: bytes) -> str:
+    def upload_media(self, media_bytes: bytes) -> TweetResult:
         """
         画像などのメディアをアップロードして**media_id**を返す
         """
 
         try:
             media = self.x_api.media_upload(media=media_bytes)
-            return media.media_id
+            media_id = media.media_id
+            app_logger.info(f"Media uploaded successfully. media_id={media_id}")
+
+            return TweetResult(
+                status=HTTPStatus.OK,
+                media_id=media_id,
+                raw=media
+            )
         except Exception as e:
-            raise RuntimeError(f"Media upload failed {e}")
+            raise XApiError(e)
     
     def tweet_with_media(self, text: str, media_bytes: bytes) -> dict:
         """
         画像付きツイートを投稿する
         """
         
-        media_id = self.upload_media(media_bytes)
+        media_result = self.upload_media(media_bytes)
+        if (media_result.status != HTTPStatus.OK):
+            return media_result
+        media_id = media_result.media_id
         return self.tweet(text=text, media_ids=[media_id])

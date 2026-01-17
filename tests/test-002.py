@@ -10,8 +10,10 @@ x_client = XClient()
 
 try:
     # Tweetテスト
-    x_client.tweet("Test Tweet. What's up?")
-
+    res = x_client.tweet("Test Tweet. What's up?")
+    print(res.tweet_id)
+    print(res.status)
+    
     # ロガーテスト
     app_logger.info("Tweet Successfully.")
 except Exception as e:
