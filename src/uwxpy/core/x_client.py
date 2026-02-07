@@ -32,7 +32,7 @@ class XClient:
             access_token_secret=app.core.config.x_api.access_token_secret
         )
         self.x_api = tweepy.API(auth)
-        
+    
     def tweet(self, text: str, media_ids: list[str] | None = None) -> TweetResult:
         """
         Xにツイートを投稿する

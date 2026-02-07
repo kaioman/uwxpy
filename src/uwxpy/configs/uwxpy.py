@@ -8,3 +8,6 @@ class UwxpyConfig(PyCorexConfig):
     
     x_api: XAPIModel = XAPIModel()
     """ X API設定クラスモデル"""
+
+    image_output_abs_path: str
+    """ 画像出力先相対パス """
