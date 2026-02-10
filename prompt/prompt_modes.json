@@ -1,0 +1,28 @@
+{
+    "modes": {
+        "chill": {
+            "display_name": "静・柔・日常（チル）",
+            "mapping": {
+                "quality": "quality_soft",
+                "hairstyle": "long_medium",
+                "outfit": "casual_daily",
+                "pose_and_angle": "static_portrait",
+                "expression": "positive_bright",
+                "location": "indoor_urban",
+                "effects": "soft_lighting"
+            }
+        },
+        "action": {
+            "display_name": "動・鋭・非日常（アクション）",
+            "mapping": {
+                "quality": "quality_sharp",
+                "hairstyle": "short_updo",
+                "outfit": "fantasy_special",
+                "pose_and_angle": "active_dramatic",
+                "expression": "cool_emotional",
+                "location": "nature_fantasy",
+                "effects": "dynamic_particle"
+            }
+        }
+    }
+}
