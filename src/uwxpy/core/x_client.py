@@ -50,6 +50,7 @@ class XClient:
             return TweetResult(
                 status=HTTPStatus.OK,
                 tweet_id=tweet_id,
+                media_id=media_ids,
                 raw=response.data,
             )
         except TweepyException as e:
