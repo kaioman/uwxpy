@@ -1,3 +1,4 @@
+import io
 import tweepy
 import uwxpy.configs.app_init as app
 import libcore_hng.utils.app_logger as app_logger
@@ -64,12 +65,15 @@ class XClient:
         """
 
         try:
-            media = self.x_api.media_upload(media=media_bytes)
+            #media = self.x_api.media_upload(media=media_bytes)
+            file_obj = io.BytesIO(media_bytes)
+            media = self.x_api.media_upload(filename="upload.png", file=file_obj)
             media_id = media.media_id
             app_logger.info(f"Media uploaded successfully. media_id={media_id}")
 
             return TweetResult(
                 status=HTTPStatus.OK,
+                tweet_id=None,
                 media_id=media_id,
                 raw=media
             )
