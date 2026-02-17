@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "uwxpy"                # PyPIに登録されるパッケージ名
-version = "1.0.2"
+version = "1.0.3"
 description = "A Python toolkit for generating, editing, and posting AI-powered images to X using Uwgen API, Gemini Vison, and Tweety."
 readme = "README.md"            # 説明文としてREADMEを利用
 license = {file = "LICENSE"}    # ライセンスファイル
