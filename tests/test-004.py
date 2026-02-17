@@ -15,10 +15,10 @@ try:
         "resolution": GeminiClient.ImageSize.TWO_K.value,
         "aspect": GeminiClient.AspectRatio.SQUARE.value,
         "safety_filter": GeminiClient.HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT.value,
-        "safety_level": GeminiClient.SafetyFilterLevel.BLOCK_NONE.value
+        "safety_level": GeminiClient.SafetyFilterLevel.BLOCK_ONLY_HIGH.value
     }
     
-    # 画像生成テスト
+    # 画像編集テスト
     res = aiartworks_client.edit_image(
         prompt="Imagine the girl from the original image in a completely different scene. Keeping her face and the original anime art style, redraw her standing with feet shoulder-width apart in a hero pose. She is now wearing a medieval knight armor with a cape, and her expression has changed to a serious determined face. Replace the background with fantasy castle battlements under dramatic shadows.",
         source_file_path="source_image/unchain8.png",

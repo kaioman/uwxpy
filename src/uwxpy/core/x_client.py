@@ -80,7 +80,7 @@ class XClient:
         except Exception as e:
             raise XApiError(e)
     
-    def tweet_with_media(self, text: str, media_bytes: bytes) -> dict:
+    def tweet_with_media(self, text: str, media_bytes: bytes) -> TweetResult:
         """
         画像付きツイートを投稿する
         """
