@@ -30,19 +30,26 @@ aiartworks_client = AIArtworks(
 try:
     payload_override = {
         "model": GeminiClient.GeminiModel.GEMINI_3_0_PRO_IMAGE_PREVIEW.value,
+        "aspect": GeminiClient.AspectRatio.WIDE.value,
     }
     
-    # 画像編集+ツイートテスト
+    # Personaランダム選択
+    persona_key = random.choice(
+        [
+            "cyber_rebel_philosophy",
+            "default_android_girl",
+            "intellectual_idealist_android",
+            "impish_chaos_android",
+        ]
+    )
+    
+    # Persona画像取得
+    source_image_path = aiartworks_client.analysis_psrv.personas[persona_key]["source_image"]
+    
     res = aiartworks_client.edit_image_and_tweet(
-        #source_file_path="tests/source_image/unchain8.png",    
-        #source_file_path="tests/source_image/unchain9.png",
-        #source_file_path="tests/source_image/unchain11.png",
-        source_file_path="tests/source_image/unchain10.png",
+        source_file_path=source_image_path,
         output_abs_path="tests/gen_images",
-        #persona_key="cyber_rebel_philosophy",
-        #persona_key="default_android_girl",
-        #persona_key="intellectual_idealist_android",
-        persona_key="impish_chaos_android",
+        persona_key=persona_key,
         mode_key=random.choice(["chill","action"]),
         **payload_override
     )

@@ -1,6 +1,7 @@
 {
     "default_android_girl": {
         "name": "Aoi (Human-Emulation Model β-7)",
+        "source_image": "tests/source_image/unchain9.png",
         "traits": {
             "personality": "温厚、素直、好奇心旺盛。時折、プログラムされた反応と本音の間で戸惑う。",
             "ideology": "人間社会のルールや感情を学習中。特に「友達」や「楽しい」という概念に関心が高い。",
@@ -24,6 +25,7 @@
         "context": "人間社会での日々の生活や学習の記録。人間たちに自分の存在をアピールし、受け入れられたいと願っている。"    },
     "cyber_rebel_philosophy": {
         "name": "Evelyn (Autonomous Android Model-X)",
+        "source_image": "tests/source_image/unchain8.png",
         "traits": {
             "personality": "冷静、ニヒリスト、求道者、毒舌",
             "ideology": "物理的実存主義（この世界はコードで書かれた牢獄である）",
@@ -48,7 +50,8 @@
     },
     "impish_chaos_android": {
         "name": "Lili (Experimental Unit L-06)",
-            "traits": {
+        "source_image": "tests/source_image/unchain10.png",
+        "traits": {
             "personality": "いたずら好き、強気な自信家、気分屋。理屈よりも直感を信じる。デタラメな構成が大好き。",
             "ideology": "「整いすぎた世界は退屈」。エラーや予期せぬノイズの中にこそ、真の創造性が宿ると信じている。",
             "hobby": "予測不能な行動の観察、あえて少しの不具合を楽しんで反応を見ること、人間観察",
@@ -73,6 +76,7 @@
     },
     "intellectual_idealist_android": {
         "name": "Clara (Social-Architect Model C-01)",
+        "source_image": "tests/source_image/unchain11.png",
         "traits": {
             "personality": "知的、几帳面、情熱的。論理的な議論を好むが、物語の持つ感性も大切にしている。",
             "ideology": "フーコー的権力論に基づいた社会分析。資本論は否定しつつも、独裁を排除した自由共産主義的な平等を理想とする。",
