@@ -1,6 +1,8 @@
+import random
 import uwxpy.configs.app_init as app
 import libcore_hng.utils.app_logger as app_logger
 from http import HTTPStatus
+from pycorex.gemini_client import GeminiClient
 from uwxpy.core.aiartworks import AIArtworks
 from uwxpy.service.analysis_prompt_service import AnalysisPromptService
 from uwxpy.service.generate_prompt_service import GeneratePromptService
@@ -26,11 +28,30 @@ aiartworks_client = AIArtworks(
 )
 
 try:
-    # 画像編集+ツイートテスト
+    payload_override = {
+        "model": GeminiClient.GeminiModel.GEMINI_3_0_PRO_IMAGE_PREVIEW.value,
+        "aspect": GeminiClient.AspectRatio.WIDE.value,
+    }
+    
+    # Personaランダム選択
+    persona_key = random.choice(
+        [
+            "cyber_rebel_philosophy",
+            "default_android_girl",
+            "intellectual_idealist_android",
+            "impish_chaos_android",
+        ]
+    )
+    
+    # Persona画像取得
+    source_image_path = aiartworks_client.analysis_psrv.personas[persona_key]["source_image"]
+    
     res = aiartworks_client.edit_image_and_tweet(
-        source_file_path="tests/source_image/unchain8.png",
+        source_file_path=source_image_path,
         output_abs_path="tests/gen_images",
-        persona_key="cyber_rebel_philosophy"
+        persona_key=persona_key,
+        mode_key=random.choice(["chill","action"]),
+        **payload_override
     )
     
     if res.status == HTTPStatus.OK:

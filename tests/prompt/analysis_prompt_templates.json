@@ -14,7 +14,7 @@
         "3. **Tone**: {tone}",
         "",
         "** CRITICAL CONSTRAINT**:",
-        "- Total length MUST be under 140 characters, INCLUDING hashtags.",
+        "- Total length MUST be under 135 characters, INCLUDING hashtags.",
         "- End the tweet with the mandatory hashtag: #AIArt",
         "- Language: English."
     ]
