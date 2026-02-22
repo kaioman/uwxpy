@@ -12,7 +12,9 @@ authors = [
     { name="kaioman", email="kajin0318@gmail.com" }
 ]
 dependencies = [
-    "libcore-hng"
+    "libcore-hng",
+    "pycorex",
+    "tweepy"
 ]
 
 [tool.setuptools]
