@@ -25,7 +25,14 @@ class AIArtworks(XClient):
     
     def __init__(self, aps: AnalysisPromptService=None, gps: GeneratePromptService=None):
         """
-        コンストラクタ        
+        コンストラクタ
+        
+        Parameters
+        ----------
+        aps : AnalysisPromptService, optional
+            解析プロンプトサービス, by default None
+        gps : GeneratePromptService, optional
+            生成プロンプトサービス, by default None
         """
         
         # 基底側コンストラクタ
@@ -45,6 +52,18 @@ class AIArtworks(XClient):
         **payload):
         """
         テキスト生成
+        
+        Parameters
+        ----------
+        prompt : str
+            生成用プロンプト
+        **payload
+            追加のペイロードパラメータ
+
+        Returns
+        --------
+        dict or None
+            生成されたテキストを含む結果データ
         """
         
         try:
@@ -66,6 +85,20 @@ class AIArtworks(XClient):
         **payload):
         """
         画像生成
+        
+        Parameters
+        ----------
+        prompt : str
+            生成用プロンプト
+        output_abs_path : str
+            画像の出力先絶対パス
+        **payload
+            追加のペイロードパラメータ
+
+        Returns
+        --------
+        dict or None
+            生成結果を含む辞書データ
         """
         
         try:
@@ -93,6 +126,22 @@ class AIArtworks(XClient):
         **payload):
         """
         画像編集
+        
+        Parameters
+        ----------
+        prompt : str
+            編集用プロンプト
+        source_file_path : str
+            元画像のファイルパス
+        output_abs_path : str
+            編集後画像の出力先絶対パス
+        **payload
+            追加のペイロードパラメータ
+
+        Returns
+        --------
+        dict or None
+            編集結果を含む辞書データ（images_pathキーに出力先パスリストを含む）
         """
         
         try:
@@ -120,6 +169,20 @@ class AIArtworks(XClient):
         **payload):
         """
         画像解析
+        
+        Parameters
+        ----------
+        prompt : str
+            解析用プロンプト
+        source_file_path : str
+            対象画像のファイルパス
+        **payload
+            追加のペイロードパラメータ
+
+        Returns
+        --------
+        dict or None
+            解析結果を含む辞書データ
         """
         
         try:
@@ -137,6 +200,9 @@ class AIArtworks(XClient):
             app_logger.error(f"Unexpected error: {e}")
     
     def generate_image_and_tweet(self):
+        """
+        画像生成＋ツイート
+        """
         pass
     
     def edit_image_and_tweet(self,
@@ -150,6 +216,30 @@ class AIArtworks(XClient):
         **payload_override) -> TweetResult:
         """
         画像編集＋ツイート
+        
+        Parameters
+        ----------
+        source_file_path : str
+            元画像のファイルパス
+        output_abs_path : str
+            編集後画像の出力先絶対パス
+        edit_prompt : str, optional
+            編集用プロンプト, by default None
+        analysis_prompt : str, optional
+            解析用プロンプト, by default None
+        persona_key : str, optional
+            ペルソナキー, by default "default_android_girl"
+        analysis_template_key : str, optional
+            解析テンプレートキー, by default "tweet_analysis_v1"
+        mode_key : str, optional
+            モードキー, by default "action"
+        **payload_override
+            オーバーライドするペイロードパラメータ
+
+        Returns
+        --------
+        TweetResult
+            ツイート結果
         """
         
         # パラメータ―統合
