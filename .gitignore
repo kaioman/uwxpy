@@ -1,6 +1,7 @@
 log/
 env/
 configs/uwxpy.json
+configs/uwxpy.json.enc
 __pycache__
 uwxpy.egg-info
 gen_images

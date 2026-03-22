@@ -8,7 +8,7 @@ from uwxpy.service.analysis_prompt_service import AnalysisPromptService
 from uwxpy.service.generate_prompt_service import GeneratePromptService
 
 # アプリ初期化
-app.init_app(__file__, "logger.json", "uwxpy.json")
+app.init_app(__file__, "app_config.json", "uwxpy.json.enc")
 
 aps = AnalysisPromptService(
     persona_path="tests/prompt/personas.json", 
@@ -29,7 +29,7 @@ aiartworks_client = AIArtworks(
 
 try:
     payload_override = {
-        "model": GeminiClient.GeminiModel.GEMINI_3_0_PRO_IMAGE_PREVIEW.value,
+        "model": GeminiClient.GeminiModel.GEMINI_2_5_FLASH_IMAGE.value,
         "aspect": GeminiClient.AspectRatio.WIDE.value,
     }
     

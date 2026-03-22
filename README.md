@@ -49,7 +49,7 @@ import libcore_hng.utils.app_logger as app_logger
 
 # 設定ファイルで初期化
 
-app.init_app(__file__, "logger.json", "uwxpy.json")
+app.init_app(__file__, "app_config.json", "uwxpy.json")
 
 app_logger.info("uwxpy アプリケーションの初期化が完了しました！")
 ```
