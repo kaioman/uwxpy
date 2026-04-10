@@ -1,5 +1,6 @@
 log/
 env/
+configs/app_config.json
 configs/uwxpy.json
 configs/uwxpy.json.enc
 __pycache__
