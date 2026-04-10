@@ -37,6 +37,18 @@ class XClient:
     def tweet(self, text: str, media_ids: list[str] | None = None) -> TweetResult:
         """
         Xにツイートを投稿する
+        
+        Parameters
+        ----------
+        text : str
+            ツイート本文
+        media_ids : list[str] | None, optional
+            添付するメディアIDのリスト
+
+        Returns
+        --------
+        TweetResult
+            ツイート結果
         """
         
         try:
@@ -62,6 +74,16 @@ class XClient:
     def upload_media(self, media_bytes: bytes) -> TweetResult:
         """
         画像などのメディアをアップロードして**media_id**を返す
+        
+        Parameters
+        ----------
+        media_bytes : bytes
+            アップロードするメディアのバイトデータ
+
+        Returns
+        --------
+        TweetResult
+            メディアアップロード結果
         """
 
         try:
@@ -83,6 +105,18 @@ class XClient:
     def tweet_with_media(self, text: str, media_bytes: bytes) -> TweetResult:
         """
         画像付きツイートを投稿する
+        
+        Parameters
+        ----------
+        text : str
+            ツイート本文
+        media_bytes : bytes
+            添付するメディアのバイトデータ
+
+        Returns
+        --------
+        TweetResult
+            ツイート結果
         """
         
         media_result = self.upload_media(media_bytes)
