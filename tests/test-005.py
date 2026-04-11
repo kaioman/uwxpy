@@ -8,7 +8,7 @@ from pycorex.gemini_client import GeminiClient
 from uwxpy.core.aiartworks import AIArtworks
 
 # アプリ初期化
-app.init_app(__file__, "logger.json", "uwxpy.json")
+app.init_app(__file__, "app_config.json", "gcp_config.json","uwxpy.json.enc")
 
 from tests.generate_prompt import GeneratePrompt
 

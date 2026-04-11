@@ -2,7 +2,7 @@ import uwxpy.configs.app_init as app
 import libcore_hng.utils.crypto as crypto
 
 # アプリ初期化
-app.init_app(__file__, "app_config.json", "uwxpy.json")
+app.init_app(__file__, "app_config.json", "gcp_config.json","uwxpy.json")
 
 # 設定ファイルを暗号化して新規ファイルとして作成
 key = crypto.create_encryption_file_from_secret_manager("configs/uwxpy.json", "DECRYPTION_KEY")
